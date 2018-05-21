@@ -1,0 +1,82 @@
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+   <head profile="http://gmpg.org/xfn/11">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+      <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+      <!-- this is jquery from leaflet -->
+   <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script> 
+   <!--  -->
+      <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2'></script>
+   </head>
+
+   <body>
+   <!-- for renderring the map with specific width and height -->
+         <div id="map" style="width: 800px; height: 440px; border: 1px solid #AAA;"></div>
+   
+      <h3>Employee Cab Request</h3>
+      
+    
+    <!--  <script type='text/javascript' src='maps/markers.json'></script>-->
+    <script type='text/javascript' src='leaf-demo.js'></script>
+  
+    <script type="text/javascript">
+    var marker = L.marker([12.8956, 80.2293],//shols address as base address
+            {draggable: true}
+            )
+           .addTo(map);
+        marker.on('dragend', function(event) {
+        var marker = event.target;  // you could also simply access the marker through the closure
+        var result = marker.getLatLng();  //getting the latlng from the marker position
+        document.getElementById('latitude').value =result.lat ;
+    	document.getElementById('longitude').value = result.lng;
+    });
+    function notEmpty(){
+        
+    			
+    }
+    </script>
+    <form action="login" method="post">  
+    <table>
+    <tr>
+      <td align="right">Employee Name:</td>
+      <td align="left"><input type="text" name="employeeName"/></td>
+      <td align="right">Employee Id:</td>
+      <td align="left"><input type="text" name="employeeId"/><td>
+    </tr>
+    <tr>
+      <td align="right">House No:</td>
+      <td align="left"><input type="text" name="address1"/></td>
+         <td align="right">Street/Area:</td>
+      <td align="left"><input type="text" name="address2"/></td>
+    </tr>
+    <tr>
+      <td align="right">City:</td>
+      <td align="left"><input type="text" name="city"/></td>
+         <td align="right">State:</td>
+      <td align="left"><input type="text" name="state"/></td>
+    </tr>
+      <tr>
+      <td align="right">Country:</td>
+      <td align="left"><input type="text" name="country"/></td>
+         <td align="right">Pincode:</td>
+      <td align="left"><input type="text" name="pincode"/></td>
+    </tr>
+          <tr>
+      <td align="right">Gender:</td>
+      <td align="left"><input type="text" name="gender"/></td>
+      
+    </tr>
+      <tr>
+      <td align="right"><input type="submit" onclick='notEmpty()' value="Save details">  </td>
+      <td align="left"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></td>
+       </tr>
+  </table>
+<!-- hidden fields for storing latitude and longitude variables -->
+  <input type="hidden" id ="latitude" name="latitude"/>
+   <input type="hidden" id ="longitude" name="longitude"/>
+
+  
+</form> 
+  
+   </body>
+</html>
